@@ -3,26 +3,29 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
 --bg:#f5f4f1;--card:#fff;--text:#1a1a18;--muted:#6b6b66;--border:rgba(0,0,0,0.1);
---accent:#1a5fa8;--accent-bg:#e8f0fb;--accent-text:#0c447c;
+--accent:#1a5fa8;--accent-bg:#e8f0fb;
 --tag:#f0eeea;--tag-t:#444;
 --green:#3B6D11;--green-bg:#EAF3DE;
 --amber:#854F0B;--amber-bg:#FAEEDA;
 --red:#A32D2D;--red-bg:#FCEBEB;
 --purple:#534AB7;--purple-bg:#EEEDFE;
 --teal:#0F6E56;--teal-bg:#E1F5EE;
+--pink:#993556;--pink-bg:#FBEAF0;
+--coral:#993C1D;--coral-bg:#FAECE7;
 }
 @media(prefers-color-scheme:dark){:root{
 --bg:#181816;--card:#222220;--text:#f0eeea;--muted:#888780;--border:rgba(255,255,255,0.1);
---accent:#5a9de0;--accent-bg:#0c447c;--accent-text:#B5D4F4;
+--accent:#5a9de0;--accent-bg:#0c447c;
 --tag:#2c2c2a;--tag-t:#d3d1c7;
 --green:#C0DD97;--green-bg:#27500A;
 --amber:#FAC775;--amber-bg:#633806;
 --red:#F7C1C1;--red-bg:#791F1F;
 --purple:#AFA9EC;--purple-bg:#26215C;
 --teal:#5DCAA5;--teal-bg:#04342C;
+--pink:#ED93B1;--pink-bg:#4B1528;
+--coral:#F0997B;--coral-bg:#4A1B0C;
 }}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.6;min-height:100vh}
-/* HEADER */
 header{background:var(--card);border-bottom:0.5px solid var(--border);position:sticky;top:0;z-index:900}
 .hdr{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:1rem;padding:0 1rem;height:52px}
 .logo{font-size:18px;font-weight:700;white-space:nowrap;letter-spacing:-.3px}
@@ -32,10 +35,8 @@ header{background:var(--card);border-bottom:0.5px solid var(--border);position:s
 .ntab{padding:0 14px;height:52px;display:flex;align-items:center;font-size:13px;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;border-top:2px solid transparent;white-space:nowrap;flex-shrink:0}
 .ntab:hover{color:var(--text)}
 .ntab.active{color:var(--accent);border-bottom-color:var(--accent)}
-/* LAYOUT */
 main{max-width:1120px;margin:0 auto;padding:1rem}
 .tab{display:none}.tab.on{display:block}
-/* HERO */
 .hero{text-align:center;padding:2rem 0 1.5rem}
 .hero h1{font-size:26px;font-weight:700;margin-bottom:.4rem}
 .hero p{color:var(--muted);font-size:15px;max-width:480px;margin:0 auto 1.2rem}
@@ -43,92 +44,84 @@ main{max-width:1120px;margin:0 auto;padding:1rem}
 .sbar input{flex:1;padding:9px 13px;border:0.5px solid var(--border);border-radius:8px;font-size:14px;background:var(--card);color:var(--text);outline:none}
 .sbar input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(26,95,168,.12)}
 .sbar button{padding:9px 18px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:14px;cursor:pointer;font-weight:500;white-space:nowrap}
-/* CARDS */
 .card{background:var(--card);border:0.5px solid var(--border);border-radius:12px;overflow:hidden}
-.ch{padding:.75rem 1rem;border-bottom:0.5px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.ch{padding:.75rem 1rem;border-bottom:0.5px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:.5rem}
 .ct{font-size:14px;font-weight:600}
 .cb{padding:.75rem 1rem}
-/* GRID – start page: news left, weather+map right, fully stacked */
 .start-layout{display:grid;grid-template-columns:1fr 340px;gap:1rem;align-items:start;margin-bottom:1rem}
 @media(max-width:780px){.start-layout{grid-template-columns:1fr}}
 .right-col{display:flex;flex-direction:column;gap:1rem}
-/* NEWS ITEMS */
 .ni{padding:.65rem 0;border-bottom:0.5px solid var(--border)}
 .ni:last-child{border-bottom:none}
-.nsrc{font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px;display:flex;align-items:center;gap:5px}
+.nsrc{font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
 .nsrc a{color:inherit;text-decoration:none}
 .nsrc a:hover{text-decoration:underline}
 .nh{font-size:13px;font-weight:500;color:var(--text);line-height:1.4;margin-bottom:2px}
 .nt{font-size:11px;color:var(--muted)}
-/* BADGE */
 .badge{display:inline-flex;padding:2px 7px;border-radius:20px;font-size:11px;font-weight:600}
-.bg{background:var(--green-bg);color:var(--green)}
+.bg2{background:var(--green-bg);color:var(--green)}
 .ba{background:var(--amber-bg);color:var(--amber)}
 .br{background:var(--red-bg);color:var(--red)}
 .bp{background:var(--purple-bg);color:var(--purple)}
 .bt{background:var(--teal-bg);color:var(--teal)}
-/* TAG */
+.bpk{background:var(--pink-bg);color:var(--pink)}
+.bco{background:var(--coral-bg);color:var(--coral)}
 .tag{display:inline-flex;align-items:center;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:500;cursor:pointer;border:0.5px solid var(--border);background:var(--tag);color:var(--tag-t);margin:2px;transition:background .15s}
 .tag:hover,.tag.on{background:var(--accent-bg);color:var(--accent);border-color:var(--accent)}
-/* TOPIC GRID */
 .tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.6rem;margin-bottom:1rem}
 .tc{background:var(--card);border:0.5px solid var(--border);border-radius:10px;padding:.75rem;cursor:pointer;transition:border-color .15s}
 .tc:hover{border-color:var(--accent)}
 .ticon{font-size:20px;margin-bottom:4px}
 .tname{font-size:13px;font-weight:600;color:var(--text)}
 .tsub{font-size:11px;color:var(--muted);margin-top:1px}
-/* AI BOX */
 .aibox{background:var(--accent-bg);border:0.5px solid rgba(26,95,168,.2);border-radius:10px;padding:1rem;margin-bottom:.75rem}
 .ailbl{font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.4rem;display:flex;align-items:center;gap:5px}
 .aidot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 1.4s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 .aibig{font-size:13px;color:var(--text);line-height:1.7;white-space:pre-wrap}
-/* SPINNER */
 .spin{display:inline-block;width:16px;height:16px;border:2px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:5px}
 @keyframes spin{to{transform:rotate(360deg)}}
-/* LIVE */
 .live{display:inline-flex;align-items:center;gap:4px;background:var(--red-bg);color:var(--red);padding:2px 8px;border-radius:20px;font-size:11px;font-weight:700}
 .ldot{width:6px;height:6px;border-radius:50%;background:currentColor;animation:pulse 1s infinite}
-/* MAP */
 #map,#map2{width:100%;border-radius:0}
 #map{height:260px}
 #map2{height:420px}
-/* WEATHER */
 .wrow{display:flex;gap:.5rem;overflow-x:auto;padding-bottom:3px}
 .wrow::-webkit-scrollbar{display:none}
 .wd2{flex:0 0 auto;background:var(--tag);border-radius:8px;padding:.5rem .6rem;text-align:center;min-width:64px}
 .wday{font-size:10px;color:var(--muted)}
 .wico{font-size:16px;margin:2px 0}
 .wtmp{font-size:13px;font-weight:600}
-/* SOURCES PILL */
-.srcpill{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:20px;font-size:11px;background:var(--tag);color:var(--muted);border:0.5px solid var(--border)}
-/* CALENDAR */
+.srcpill{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:20px;font-size:11px;background:var(--tag);color:var(--muted);border:0.5px solid var(--border);text-decoration:none}
+.srcpill:hover{background:var(--accent-bg);color:var(--accent)}
 .cal-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
 @media(max-width:680px){.cal-grid{grid-template-columns:1fr}}
 .ev{display:flex;gap:.75rem;padding:.65rem 0;border-bottom:0.5px solid var(--border)}
 .ev:last-child{border-bottom:none}
-.evdate{flex-shrink:0;width:44px;text-align:center;background:var(--tag);border-radius:8px;padding:5px 4px}
+.evdate{flex-shrink:0;width:46px;text-align:center;background:var(--tag);border-radius:8px;padding:5px 4px}
 .evday{font-size:18px;font-weight:700;color:var(--accent);line-height:1}
 .evmon{font-size:10px;color:var(--muted);text-transform:uppercase}
 .evtitle{font-size:13px;font-weight:500;color:var(--text);line-height:1.35}
 .evloc{font-size:11px;color:var(--muted);margin-top:2px}
-.evsrc{font-size:11px;color:var(--accent);margin-top:2px}
+.evsrc{font-size:11px;margin-top:3px}
+.evsrc a{color:var(--accent);text-decoration:none}
+.evsrc a:hover{text-decoration:underline}
 .cal-month-nav{display:flex;align-items:center;gap:8px}
 .mnavbtn{background:var(--tag);border:0.5px solid var(--border);border-radius:6px;padding:4px 10px;font-size:12px;cursor:pointer;color:var(--text)}
 .mnavbtn:hover{background:var(--accent-bg);color:var(--accent)}
-/* SECTION LABEL */
 .sl{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.75rem}
-/* SOURCE LIST */
 .srclist{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem}
-/* POI */
 .poi{display:flex;gap:.6rem;align-items:flex-start;padding:.55rem 0;border-bottom:0.5px solid var(--border)}
 .poi:last-child{border-bottom:none}
 .poiico{width:36px;height:36px;border-radius:8px;background:var(--tag);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-/* BUTTON */
 .btn{background:var(--card);color:var(--accent);border:0.5px solid var(--border);padding:7px 18px;border-radius:8px;font-size:13px;cursor:pointer;font-weight:500}
 .btn:hover{background:var(--accent-bg)}
-/* NEWS FILTER ROW */
 .frow{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:.75rem;align-items:center}
+.fair-stat{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;margin-bottom:1rem}
+.stat{background:var(--card);border:0.5px solid var(--border);border-radius:8px;padding:.6rem .75rem;text-align:center}
+.statn{font-size:20px;font-weight:700;color:var(--accent)}
+.statl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.evhighlight{background:var(--accent-bg);border-left:3px solid var(--accent);padding-left:8px}
 </style>
 
 <header>
@@ -138,6 +131,8 @@ main{max-width:1120px;margin:0 auto;padding:1rem}
 <div class="ntab active" onclick="goTab('start')">Start</div>
 <div class="ntab" onclick="goTab('news')">News</div>
 <div class="ntab" onclick="goTab('events')">Veranstaltungen</div>
+<div class="ntab" onclick="goTab('messen')">Messen</div>
+<div class="ntab" onclick="goTab('fhwko')">FH & WKO</div>
 <div class="ntab" onclick="goTab('themen')">Themen</div>
 <div class="ntab" onclick="goTab('karte')">Karte</div>
 <div class="ntab" onclick="goTab('ki')">KI-Suche</div>
@@ -151,9 +146,9 @@ main{max-width:1120px;margin:0 auto;padding:1rem}
 <div class="tab on" id="tab-start">
 <div class="hero">
 <h1>Wels – immer am Puls der Stadt.</h1>
-<p>News, Veranstaltungen & Stadtpolitik aus Wels – KI-gestützt aus echten Quellen.</p>
+<p>News, Veranstaltungen, Messen & Wirtschaft aus Wels – KI-gestützt aus echten Quellen.</p>
 <div class="sbar">
-<input id="hsearch" placeholder="Frage stellen: z.B. Stadtrat, Volksfest, Radweg …" onkeydown="if(event.key==='Enter')heroSearch()"/>
+<input id="hsearch" placeholder="Frage stellen: z.B. Stadtrat, Energiesparmesse, Volksfest …" onkeydown="if(event.key==='Enter')heroSearch()"/>
 <button onclick="heroSearch()">Suchen ↗</button>
 </div>
 </div>
@@ -165,31 +160,30 @@ main{max-width:1120px;margin:0 auto;padding:1rem}
 <a href="https://www.nachrichten.at/oberoesterreich/wels/" target="_blank" class="srcpill">📰 nachrichten.at</a>
 <a href="https://www.tips.at/nachrichten/wels" target="_blank" class="srcpill">📰 tips.at</a>
 <a href="https://www.laumat.at/" target="_blank" class="srcpill">⚡ laumat.at</a>
+<a href="https://www.messe-wels.at/" target="_blank" class="srcpill">🏟️ Messe Wels</a>
+<a href="https://fh-ooe.at/campus-wels/" target="_blank" class="srcpill">🎓 FH OÖ Wels</a>
+<a href="https://veranstaltungen.wkooe.at/" target="_blank" class="srcpill">💼 WKO OÖ</a>
 <a href="https://www.eventfinder.at/wels/veranstaltungen/" target="_blank" class="srcpill">🎭 eventfinder.at</a>
-<a href="https://www.messezentrum-wels.at" target="_blank" class="srcpill">🏟️ Messe Wels</a>
 </div>
 
 <div class="start-layout">
-<!-- NEWS COLUMN -->
 <div class="card">
 <div class="ch"><div class="ct">📰 Aktuelle Meldungen</div><div class="live"><div class="ldot"></div>Live</div></div>
-<div class="cb" id="start-news-list">
-<div class="ni"><div class="nsrc"><a href="https://www.wels.gv.at/news/" target="_blank">wels.gv.at</a> <span class="badge ba">Politik</span></div><div class="nh">Umweltschutzpreis 2026: „Wels isst gesund" – Stadtsenat beschließt Preis einstimmig</div><div class="nt">9. Mai 2026</div></div>
+<div class="cb">
+<div class="ni"><div class="nsrc"><a href="https://www.wels.gv.at/news/" target="_blank">wels.gv.at</a> <span class="badge ba">Politik</span></div><div class="nh">Umweltschutzpreis 2026: „Wels isst gesund" – Stadtsenat einstimmig</div><div class="nt">9. Mai 2026</div></div>
 <div class="ni"><div class="nsrc"><a href="https://www.wels.gv.at/news/" target="_blank">wels.gv.at</a> <span class="badge bt">Gesundheit</span></div><div class="nh">Zwei neue Primärversorgungszentren für Wels – ÖGK und Stadt kooperieren</div><div class="nt">8. Mai 2026</div></div>
-<div class="ni"><div class="nsrc"><a href="https://www.laumat.at/" target="_blank">laumat.at</a> <span class="badge br">Blaulicht</span></div><div class="nh">Brand bei Öl- und Fettwarenhersteller in Wels-Vogelweide – zwei Feuerwehren im Einsatz</div><div class="nt">8. Mai 2026</div></div>
-<div class="ni"><div class="nsrc"><a href="https://www.tips.at/nachrichten/wels" target="_blank">tips.at</a> <span class="badge bg">Infrastruktur</span></div><div class="nh">Asfinag verbessert Lärmschutz A8 Innkreisautobahn bei Wels – April bis September 2026</div><div class="nt">7. Mai 2026</div></div>
-<div class="ni"><div class="nsrc"><a href="https://www.meinbezirk.at/wels-wels-land" target="_blank">meinbezirk.at</a> <span class="badge bp">Sport</span></div><div class="nh">Karate-Landesmeisterschaften 2026 in Wels – 242 Anmeldungen, Budokan feiert 20. Geburtstag</div><div class="nt">6. Mai 2026</div></div>
-<div class="ni"><div class="nsrc"><a href="https://www.wels.gv.at/news/" target="_blank">wels.gv.at</a> <span class="badge bt">Stadtentwicklung</span></div><div class="nh">Volkspark Neu: Spatenstich für Österreichs größtes Entsiegelungsprojekt erfolgt</div><div class="nt">5. Mai 2026</div></div>
-<div class="ni"><div class="nsrc"><a href="https://www.nachrichten.at/oberoesterreich/wels/" target="_blank">nachrichten.at</a> <span class="badge ba">Kultur</span></div><div class="nh">Pferdeskulptur „Bukephalos" – neuer Blickfang am Kaiser-Josef-Platz enthüllt</div><div class="nt">4. Mai 2026</div></div>
-<div class="ni"><div class="nsrc"><a href="https://www.tips.at/nachrichten/wels" target="_blank">tips.at</a> <span class="badge bg">Stadtpolitik</span></div><div class="nh">Welser Skateboardhalle – Spatenstich für neue Allwetter-Anlage neben der Halle</div><div class="nt">3. Mai 2026</div></div>
+<div class="ni"><div class="nsrc"><a href="https://www.laumat.at/" target="_blank">laumat.at</a> <span class="badge br">Blaulicht</span></div><div class="nh">Brand bei Öl- und Fettwarenhersteller Wels-Vogelweide – zwei Feuerwehren</div><div class="nt">8. Mai 2026</div></div>
+<div class="ni"><div class="nsrc"><a href="https://www.tips.at/nachrichten/wels" target="_blank">tips.at</a> <span class="badge bg2">Infrastruktur</span></div><div class="nh">Asfinag-Lärmschutz A8 Innkreisautobahn bei Wels bis September 2026</div><div class="nt">7. Mai 2026</div></div>
+<div class="ni"><div class="nsrc"><a href="https://www.meinbezirk.at/wels-wels-land" target="_blank">meinbezirk.at</a> <span class="badge bp">Sport</span></div><div class="nh">Karate-Landesmeisterschaften 2026 – Welser Budokan feiert 20. Geburtstag</div><div class="nt">6. Mai 2026</div></div>
+<div class="ni"><div class="nsrc"><a href="https://www.wels.gv.at/news/" target="_blank">wels.gv.at</a> <span class="badge bt">Stadtentwicklung</span></div><div class="nh">Volkspark Neu: Spatenstich für Österreichs größtes Entsiegelungsprojekt</div><div class="nt">5. Mai 2026</div></div>
+<div class="ni"><div class="nsrc"><a href="https://www.nachrichten.at/oberoesterreich/wels/" target="_blank">nachrichten.at</a> <span class="badge ba">Kultur</span></div><div class="nh">Pferdeskulptur „Bukephalos" – neuer Blickfang am Kaiser-Josef-Platz</div><div class="nt">4. Mai 2026</div></div>
 </div>
 <div style="padding:.5rem 1rem;border-top:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center">
-<span style="font-size:11px;color:var(--muted)">Quellen: wels.gv.at, meinbezirk.at, tips.at, nachrichten.at, laumat.at</span>
+<span style="font-size:11px;color:var(--muted)">5 Quellen</span>
 <button class="btn" onclick="goTab('news')">Alle News →</button>
 </div>
 </div>
 
-<!-- RIGHT COLUMN: weather + map separately -->
 <div class="right-col">
 <div class="card">
 <div class="ch"><div class="ct">🌤️ Wetter Wels</div><span style="font-size:11px;color:var(--muted)">Mai 2026</span></div>
@@ -206,17 +200,24 @@ main{max-width:1120px;margin:0 auto;padding:1rem}
 </div>
 </div>
 
-<!-- NÄCHSTE EVENTS -->
 <div class="card">
-<div class="ch"><div class="ct">🗓️ Nächste Events</div><button class="btn" onclick="goTab('events')" style="font-size:11px;padding:3px 10px">Alle →</button></div>
+<div class="ch"><div class="ct">🏟️ Nächste Messen</div><button class="btn" onclick="goTab('messen')" style="font-size:11px;padding:3px 10px">Alle →</button></div>
 <div class="cb">
-<div class="ev"><div class="evdate"><div class="evday">13</div><div class="evmon">Jun</div></div><div><div class="evtitle">Vienna Brass Connection – Lions Club Charity Konzert</div><div class="evloc">Stadttheater Greif Wels, 19:30</div></div></div>
-<div class="ev"><div class="evdate"><div class="evday">16</div><div class="evmon">Jul</div></div><div><div class="evtitle">Klassik am Dom 2026 – Erwin Schrott (Bass-Bariton)</div><div class="evloc">Stadtpfarrkirche Wels, 20:00</div></div></div>
-<div class="ev"><div class="evdate"><div class="evday">03</div><div class="evmon">Sep</div></div><div><div class="evtitle">Welser Volksfest 2026</div><div class="evloc">Festwiese Wels, Do–So</div></div></div>
+<div class="ev"><div class="evdate"><div class="evday">14</div><div class="evmon">Mai</div></div><div><div class="evtitle">PFERD Wels 2026 – Pferdesport-Messe</div><div class="evloc">Messezentrum, 14.–17. Mai · „Nacht der Pferde"</div></div></div>
+<div class="ev"><div class="evdate"><div class="evday">10</div><div class="evmon">Jun</div></div><div><div class="evtitle">integra 2026 – Fachmesse Pflege/Reha</div><div class="evloc">Messe Wels, 10.–12. Juni</div></div></div>
+<div class="ev"><div class="evdate"><div class="evday">27</div><div class="evmon">Feb</div></div><div><div class="evtitle">Energiesparmesse Wels 2027 + E-Car Days</div><div class="evloc">27. Feb. – 1. März 2027</div></div></div>
 </div>
 </div>
 
-<!-- MAP standalone -->
+<div class="card">
+<div class="ch"><div class="ct">🎓 FH & WKO</div><button class="btn" onclick="goTab('fhwko')" style="font-size:11px;padding:3px 10px">Alle →</button></div>
+<div class="cb">
+<div class="ev"><div class="evdate"><div class="evday">06</div><div class="evmon">Mai</div></div><div><div class="evtitle">Workshop FH Wels: Selbsthilfe Nacken/Schulter</div><div class="evloc">FH OÖ Campus Wels · 9:00</div></div></div>
+<div class="ev"><div class="evdate"><div class="evday">13</div><div class="evmon">Mai</div></div><div><div class="evtitle">Junge Wirtschaft Wels: Mazda-Betriebsbesichtigung</div><div class="evloc">WKO Wels</div></div></div>
+<div class="ev"><div class="evdate"><div class="evday">15</div><div class="evmon">Jän</div></div><div><div class="evtitle">FH Wels: Master Night 2027</div><div class="evloc">Aula FH OÖ · 18:00</div></div></div>
+</div>
+</div>
+
 <div class="card">
 <div class="ch"><div class="ct">🗺️ Wels auf der Karte</div><button class="btn" onclick="goTab('karte')" style="font-size:11px;padding:3px 10px">Vollbild →</button></div>
 <div id="map"></div>
@@ -224,25 +225,22 @@ main{max-width:1120px;margin:0 auto;padding:1rem}
 </div>
 </div>
 
-<!-- THEMEN QUICK -->
 <div class="sl" style="margin-top:1.5rem">Themen</div>
 <div class="tgrid">
-<div class="tc" onclick="topicSearch('Verkehr Radweg Parken Wels 2026')"><div class="ticon">🚗</div><div class="tname">Verkehr</div><div class="tsub">Radwege, Parken, Bus</div></div>
-<div class="tc" onclick="topicSearch('Stadtrat Gemeinderat Beschlüsse Wels 2026')"><div class="ticon">🏛️</div><div class="tname">Stadtpolitik</div><div class="tsub">Stadtrat, Beschlüsse</div></div>
-<div class="tc" onclick="topicSearch('Umwelt Volkspark Traun Wels 2026')"><div class="ticon">🌳</div><div class="tname">Umwelt</div><div class="tsub">Traun, Grünflächen</div></div>
-<div class="tc" onclick="topicSearch('Schule Bildung Berufsschule Wels')"><div class="ticon">🎓</div><div class="tname">Bildung</div><div class="tsub">Schulen, Jugend</div></div>
-<div class="tc" onclick="topicSearch('Wohnen Bauen Stadtentwicklung Wels')"><div class="ticon">🏠</div><div class="tname">Wohnen & Bauen</div><div class="tsub">Projekte, Mieten</div></div>
-<div class="tc" onclick="topicSearch('Wirtschaft Fronius Messe Wels 2026')"><div class="ticon">💼</div><div class="tname">Wirtschaft</div><div class="tsub">Messe, Betriebe</div></div>
-<div class="tc" onclick="topicSearch('Kultur Theater Stadttheater Wels 2026')"><div class="ticon">🎭</div><div class="tname">Kultur</div><div class="tsub">Theater, Musik</div></div>
-<div class="tc" onclick="topicSearch('Sport Vereine Budokan Wels 2026')"><div class="ticon">⚽</div><div class="tname">Sport</div><div class="tsub">Vereine, Events</div></div>
+<div class="tc" onclick="topicSearch('Verkehr Radweg Parken Wels 2026')"><div class="ticon">🚗</div><div class="tname">Verkehr</div><div class="tsub">Radwege, Parken</div></div>
+<div class="tc" onclick="topicSearch('Stadtrat Bürgermeister Andreas Rabl Wels')"><div class="ticon">🏛️</div><div class="tname">Stadtpolitik</div><div class="tsub">Stadtrat</div></div>
+<div class="tc" onclick="topicSearch('Wirtschaft Fronius Messezentrum Wels')"><div class="ticon">💼</div><div class="tname">Wirtschaft</div><div class="tsub">Fronius, Messe</div></div>
+<div class="tc" onclick="topicSearch('FH OÖ Campus Wels Studiengänge')"><div class="ticon">🎓</div><div class="tname">FH OÖ Wels</div><div class="tsub">Studium</div></div>
+<div class="tc" onclick="topicSearch('Energiesparmesse Wels OÖ Energiesparverband')"><div class="ticon">⚡</div><div class="tname">Energie</div><div class="tsub">Energiesparmesse</div></div>
+<div class="tc" onclick="topicSearch('Kultur Stadttheater Greif Wels')"><div class="ticon">🎭</div><div class="tname">Kultur</div><div class="tsub">Theater</div></div>
+<div class="tc" onclick="topicSearch('Sport Vereine Budokan Huskies Wels')"><div class="ticon">⚽</div><div class="tname">Sport</div><div class="tsub">Vereine</div></div>
+<div class="tc" onclick="topicSearch('Welser Volksfest 2026')"><div class="ticon">🎡</div><div class="tname">Volksfest</div><div class="tsub">3.–6. Sep. 2026</div></div>
 </div>
 </div>
 
 <!-- ===== NEWS ===== -->
 <div class="tab" id="tab-news">
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem">
-<div class="sl" style="margin:0">Alle Meldungen aus Wels & Wels-Land</div>
-</div>
+<div class="sl">Alle Meldungen aus Wels & Wels-Land</div>
 <div class="frow">
 <span class="sl" style="margin:0;align-self:center">Filter:</span>
 <span class="tag on" onclick="filterNews(this,'alle')">Alle</span>
@@ -258,22 +256,20 @@ main{max-width:1120px;margin:0 auto;padding:1rem}
 <div class="card">
 <div class="cb" id="newslist">
 <div class="ni" data-cat="gesundheit"><div class="nsrc"><a href="https://www.wels.gv.at/news/" target="_blank">wels.gv.at</a> <span class="badge bt">Gesundheit</span></div><div class="nh">Zwei neue Primärversorgungszentren für Wels – ÖGK und Stadt kooperieren</div><div class="nt">8. Mai 2026</div></div>
-<div class="ni" data-cat="politik"><div class="nsrc"><a href="https://www.wels.gv.at/news/" target="_blank">wels.gv.at</a> <span class="badge ba">Politik</span></div><div class="nh">Umweltschutzpreis 2026: Stadtsenat beschließt „Wels isst gesund" einstimmig</div><div class="nt">9. Mai 2026</div></div>
-<div class="ni" data-cat="blaulicht"><div class="nsrc"><a href="https://www.laumat.at/" target="_blank">laumat.at</a> <span class="badge br">Blaulicht</span></div><div class="nh">Brand bei Öl- und Fettwarenhersteller in Wels-Vogelweide – zwei Feuerwehren im Einsatz</div><div class="nt">8. Mai 2026</div></div>
-<div class="ni" data-cat="verkehr"><div class="nsrc"><a href="https://www.tips.at/nachrichten/wels" target="_blank">tips.at</a> <span class="badge bg">Infrastruktur</span></div><div class="nh">Asfinag: Lärmschutz A8 Innkreisautobahn bei Wels wird bis September verbessert</div><div class="nt">7. Mai 2026</div></div>
-<div class="ni" data-cat="sport"><div class="nsrc"><a href="https://www.meinbezirk.at/wels-wels-land" target="_blank">meinbezirk.at</a> <span class="badge bp">Sport</span></div><div class="nh">Karate-Landesmeisterschaften 2026 im Welser Budokan – 20. Jubiläum als Kampfkunstzentrum</div><div class="nt">6. Mai 2026</div></div>
-<div class="ni" data-cat="umwelt"><div class="nsrc"><a href="https://www.wels.gv.at/news/" target="_blank">wels.gv.at</a> <span class="badge bt">Umwelt</span></div><div class="nh">Volkspark Neu: Spatenstich für Österreichs größtes Entsiegelungsprojekt in Wels</div><div class="nt">5. Mai 2026</div></div>
-<div class="ni" data-cat="kultur"><div class="nsrc"><a href="https://www.nachrichten.at/oberoesterreich/wels/" target="_blank">nachrichten.at</a> <span class="badge ba">Kultur</span></div><div class="nh">Grabplatte in Stadtpfarrkirche Wels soll sichtbar gemacht werden – historischer Fund</div><div class="nt">4. Mai 2026</div></div>
+<div class="ni" data-cat="politik"><div class="nsrc"><a href="https://www.wels.gv.at/news/" target="_blank">wels.gv.at</a> <span class="badge ba">Politik</span></div><div class="nh">Umweltschutzpreis 2026: „Wels isst gesund" – einstimmiger Stadtsenats-Beschluss</div><div class="nt">9. Mai 2026</div></div>
+<div class="ni" data-cat="blaulicht"><div class="nsrc"><a href="https://www.laumat.at/" target="_blank">laumat.at</a> <span class="badge br">Blaulicht</span></div><div class="nh">Brand bei Öl- und Fettwarenhersteller Wels-Vogelweide – zwei Feuerwehren</div><div class="nt">8. Mai 2026</div></div>
+<div class="ni" data-cat="verkehr"><div class="nsrc"><a href="https://www.tips.at/nachrichten/wels" target="_blank">tips.at</a> <span class="badge bg2">Infrastruktur</span></div><div class="nh">Asfinag: Lärmschutz A8 Innkreisautobahn bei Wels wird bis September verbessert</div><div class="nt">7. Mai 2026</div></div>
+<div class="ni" data-cat="sport"><div class="nsrc"><a href="https://www.meinbezirk.at/wels-wels-land" target="_blank">meinbezirk.at</a> <span class="badge bp">Sport</span></div><div class="nh">Karate-Landesmeisterschaften 2026 im Welser Budokan – 20. Jubiläum</div><div class="nt">6. Mai 2026</div></div>
+<div class="ni" data-cat="umwelt"><div class="nsrc"><a href="https://www.wels.gv.at/news/" target="_blank">wels.gv.at</a> <span class="badge bt">Umwelt</span></div><div class="nh">Volkspark Neu: Österreichs größtes Entsiegelungsprojekt – Spatenstich erfolgt</div><div class="nt">5. Mai 2026</div></div>
 <div class="ni" data-cat="kultur"><div class="nsrc"><a href="https://www.nachrichten.at/oberoesterreich/wels/" target="_blank">nachrichten.at</a> <span class="badge ba">Kultur</span></div><div class="nh">Pferdeskulptur „Bukephalos" – neuer Blickfang am Kaiser-Josef-Platz enthüllt</div><div class="nt">4. Mai 2026</div></div>
-<div class="ni" data-cat="sport"><div class="nsrc"><a href="https://www.tips.at/nachrichten/wels" target="_blank">tips.at</a> <span class="badge bp">Sport</span></div><div class="nh">Huskies Wels verlieren auswärts bei Mödling Rangers 7:31 – Saisonabschluss</div><div class="nt">3. Mai 2026</div></div>
-<div class="ni" data-cat="politik"><div class="nsrc"><a href="https://www.wels.gv.at/news/" target="_blank">wels.gv.at</a> <span class="badge ba">Stadtentwicklung</span></div><div class="nh">Neue Skateboardhalle in Wels: Spatenstich – Allwetter-Anlage für Szene</div><div class="nt">3. Mai 2026</div></div>
+<div class="ni" data-cat="kultur"><div class="nsrc"><a href="https://www.nachrichten.at/oberoesterreich/wels/" target="_blank">nachrichten.at</a> <span class="badge ba">Kultur</span></div><div class="nh">Grabplatte in Stadtpfarrkirche Wels soll sichtbar gemacht werden</div><div class="nt">4. Mai 2026</div></div>
+<div class="ni" data-cat="sport"><div class="nsrc"><a href="https://www.tips.at/nachrichten/wels" target="_blank">tips.at</a> <span class="badge bp">Sport</span></div><div class="nh">Huskies Wels verlieren auswärts bei Mödling Rangers 7:31</div><div class="nt">3. Mai 2026</div></div>
+<div class="ni" data-cat="politik"><div class="nsrc"><a href="https://www.wels.gv.at/news/" target="_blank">wels.gv.at</a> <span class="badge ba">Stadtentwicklung</span></div><div class="nh">Neue Skateboardhalle in Wels: Spatenstich – Allwetter-Anlage für Skater-Szene</div><div class="nt">3. Mai 2026</div></div>
 <div class="ni" data-cat="blaulicht"><div class="nsrc"><a href="https://www.tips.at/nachrichten/wels" target="_blank">tips.at</a> <span class="badge br">Blaulicht</span></div><div class="nh">Brand eines Doppelhauses in Wels-Innenstadt – 23-Jähriger gesteht Brandstiftung</div><div class="nt">2. Mai 2026</div></div>
-<div class="ni" data-cat="sport"><div class="nsrc"><a href="https://www.tips.at/nachrichten/wels" target="_blank">tips.at</a> <span class="badge bp">Sport</span></div><div class="nh">PSV Wels/Tolleterau: Zwei Turniersiegeinnerhab einer Woche im Pétanque</div><div class="nt">1. Mai 2026</div></div>
-<div class="ni" data-cat="wirtschaft"><div class="nsrc"><a href="https://www.meinbezirk.at/wels-wels-land" target="_blank">meinbezirk.at</a> <span class="badge bg">Wirtschaft</span></div><div class="nh">Kesseltausch-Förderprogramm: OÖ-Haushalte steigen massiv auf erneuerbare Heizung um</div><div class="nt">30. Apr 2026</div></div>
-<div class="ni" data-cat="politik"><div class="nsrc"><a href="https://www.wels.gv.at/news/" target="_blank">wels.gv.at</a> <span class="badge ba">Soziales</span></div><div class="nh">Schlosspark Lichtenegg: Sanierungsmeilenstein nach Sisi-Pavillon und Torbogen abgeschlossen</div><div class="nt">28. Apr 2026</div></div>
+<div class="ni" data-cat="wirtschaft"><div class="nsrc"><a href="https://www.meinbezirk.at/wels-wels-land" target="_blank">meinbezirk.at</a> <span class="badge bg2">Wirtschaft</span></div><div class="nh">Kesseltausch-Förderprogramm: OÖ-Haushalte steigen massiv auf erneuerbare Heizung um</div><div class="nt">30. Apr 2026</div></div>
 </div>
-<div style="padding:.6rem 1rem;border-top:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center">
-<a href="https://www.wels.gv.at/news/" target="_blank" style="font-size:11px;color:var(--accent)">→ wels.gv.at · meinbezirk.at · tips.at · nachrichten.at · laumat.at</a>
+<div style="padding:.6rem 1rem;border-top:0.5px solid var(--border)">
+<span style="font-size:11px;color:var(--muted)">→ wels.gv.at · meinbezirk.at · tips.at · nachrichten.at · laumat.at</span>
 </div>
 </div>
 </div>
@@ -288,28 +284,77 @@ main{max-width:1120px;margin:0 auto;padding:1rem}
 <button class="mnavbtn" onclick="showMonth(1)">▶</button>
 </div>
 </div>
-<div class="srclist" style="margin-bottom:.75rem">
-<span class="sl" style="margin:0;align-self:center">Quellen:</span>
-<a href="https://www.eventfinder.at/wels/veranstaltungen/" target="_blank" class="srcpill">eventfinder.at</a>
-<a href="https://www.tips.at/events/wels" target="_blank" class="srcpill">tips.at Events</a>
-<a href="https://www.wels.gv.at/veranstaltungen/" target="_blank" class="srcpill">wels.gv.at</a>
-<a href="https://welser-volksfest.at" target="_blank" class="srcpill">Volksfest</a>
-<a href="https://www.messezentrum-wels.at" target="_blank" class="srcpill">Messezentrum</a>
-</div>
 <div class="frow">
 <span class="tag on" onclick="filterEv(this,'alle')">Alle</span>
-<span class="tag" onclick="filterEv(this,'konzert')">Konzert</span>
-<span class="tag" onclick="filterEv(this,'theater')">Theater</span>
-<span class="tag" onclick="filterEv(this,'sport')">Sport</span>
-<span class="tag" onclick="filterEv(this,'messe')">Messe</span>
-<span class="tag" onclick="filterEv(this,'volksfest')">Volksfest</span>
-<span class="tag" onclick="filterEv(this,'markt')">Markt</span>
-<span class="tag" onclick="filterEv(this,'sonstiges')">Sonstiges</span>
+<span class="tag" onclick="filterEv(this,'messe')">🏟️ Messe</span>
+<span class="tag" onclick="filterEv(this,'fh')">🎓 FH OÖ</span>
+<span class="tag" onclick="filterEv(this,'wko')">💼 WKO</span>
+<span class="tag" onclick="filterEv(this,'konzert')">🎵 Konzert</span>
+<span class="tag" onclick="filterEv(this,'theater')">🎭 Theater</span>
+<span class="tag" onclick="filterEv(this,'sport')">⚽ Sport</span>
+<span class="tag" onclick="filterEv(this,'volksfest')">🎡 Volksfest</span>
+<span class="tag" onclick="filterEv(this,'markt')">🛒 Markt</span>
 </div>
 <div class="card">
 <div class="cb" id="evlist"></div>
+</div>
+</div>
+
+<!-- ===== MESSEN ===== -->
+<div class="tab" id="tab-messen">
+<div class="sl">Messen in Wels 2026/27 – Messezentrum Wels</div>
+<div class="fair-stat">
+<div class="stat"><div class="statn">37+</div><div class="statl">Messen/Jahr</div></div>
+<div class="stat"><div class="statn">11</div><div class="statl">Bauen & Wohnen</div></div>
+<div class="stat"><div class="statn">2</div><div class="statl">Größte Eventhalle OÖ</div></div>
+<div class="stat"><div class="statn">2027</div><div class="statl">Landesgartenschau</div></div>
+</div>
+<div class="srclist">
+<a href="https://www.messe-wels.at/" target="_blank" class="srcpill">🏟️ messe-wels.at</a>
+<a href="https://energiesparmesse.at/" target="_blank" class="srcpill">⚡ Energiesparmesse</a>
+<a href="https://pferd-wels.at/" target="_blank" class="srcpill">🐎 PFERD Wels</a>
+<a href="https://integra.at/" target="_blank" class="srcpill">♿ integra</a>
+<a href="https://gartenmesse.at/" target="_blank" class="srcpill">🌿 Blühendes Österreich</a>
+<a href="https://fishing-festival.at/" target="_blank" class="srcpill">🎣 Fishing Festival</a>
+<a href="https://bogensportmesse.at/" target="_blank" class="srcpill">🏹 Bogensportmesse</a>
+</div>
+<div class="card">
+<div class="cb" id="messenlist"></div>
 <div style="padding:.6rem 1rem;border-top:0.5px solid var(--border)">
-<a href="https://www.eventfinder.at/wels/veranstaltungen/" target="_blank" style="font-size:11px;color:var(--accent)">→ Mehr Veranstaltungen auf eventfinder.at & tips.at</a>
+<span style="font-size:11px;color:var(--muted)">📍 Alle Messen am Messeplatz 1, 4600 Wels (Messezentrum Wels) · Quelle: messe-wels.at, messen.de</span>
+</div>
+</div>
+</div>
+
+<!-- ===== FH & WKO ===== -->
+<div class="tab" id="tab-fhwko">
+<div class="sl">FH OÖ Campus Wels & WKO Wels</div>
+<div class="cal-grid">
+<div class="card">
+<div class="ch"><div class="ct">🎓 FH OÖ – Campus Wels</div><a href="https://fh-ooe.at/campus-wels/events" target="_blank" class="btn" style="font-size:11px;padding:3px 10px;text-decoration:none">events →</a></div>
+<div class="cb" id="fhlist"></div>
+<div style="padding:.6rem 1rem;border-top:0.5px solid var(--border)">
+<span style="font-size:11px;color:var(--muted)">📍 FH OÖ, Stelzhamerstraße 23 / Franz-Fritsch-Straße 11, 4600 Wels<br>Quelle: <a href="https://fh-ooe.at/campus-wels/events" target="_blank" style="color:var(--accent)">fh-ooe.at</a></span>
+</div>
+</div>
+<div class="card">
+<div class="ch"><div class="ct">💼 WKO Wels & Junge Wirtschaft</div><a href="https://veranstaltungen.wkooe.at/" target="_blank" class="btn" style="font-size:11px;padding:3px 10px;text-decoration:none">WKO OÖ →</a></div>
+<div class="cb" id="wkolist"></div>
+<div style="padding:.6rem 1rem;border-top:0.5px solid var(--border)">
+<span style="font-size:11px;color:var(--muted)">📍 WKO Wels, Standort Wels-Stadt<br>Quelle: <a href="https://veranstaltungen.wkooe.at/" target="_blank" style="color:var(--accent)">veranstaltungen.wkooe.at</a></span>
+</div>
+</div>
+</div>
+
+<div class="sl">Was bieten FH und WKO?</div>
+<div class="card" style="margin-bottom:1rem">
+<div class="cb" style="font-size:13px;line-height:1.7">
+<strong>FH OÖ Campus Wels</strong> ist eine der vier Fakultäten der Fachhochschule Oberösterreich. Schwerpunkte sind Technik & Naturwissenschaften (z.B. Maschinenbau, Bio- und Umwelttechnik, Lebensmitteltechnologie). Regelmäßige Info-Events: <em>Open House</em> (März), <em>Master Night</em> (Jänner), <em>1day@FH</em> (Studieren probieren), Sommerempfang & offene Lehrveranstaltungen.
+</div>
+</div>
+<div class="card">
+<div class="cb" style="font-size:13px;line-height:1.7">
+<strong>WKO Wels</strong> (Wirtschaftskammer Standort Wels-Stadt) bietet kostenlose Workshops zur Selbstständigkeit, Betriebsbesichtigungen, Networking-Events der Jungen Wirtschaft, Gründungstage und Webinare zu Recht, Steuern, Cybersicherheit und Digitalisierung (NISG, Datenschutz, KI im Unternehmen).
 </div>
 </div>
 </div>
@@ -318,16 +363,16 @@ main{max-width:1120px;margin:0 auto;padding:1rem}
 <div class="tab" id="tab-themen">
 <div class="sl">Themen in Wels – KI-Zusammenfassung</div>
 <div class="tgrid" style="margin-bottom:1rem">
-<div class="tc" onclick="topicSearch('Verkehr Radweg Parken Wels 2026')"><div class="ticon">🚗</div><div class="tname">Verkehr & Mobilität</div><div class="tsub">Radwege, Parken, Bus</div></div>
-<div class="tc" onclick="topicSearch('Stadtrat Gemeinderat Bürgermeister Andreas Rabl Wels 2026')"><div class="ticon">🏛️</div><div class="tname">Kommunalpolitik</div><div class="tsub">Stadtrat, Beschlüsse</div></div>
-<div class="tc" onclick="topicSearch('Umwelt Volkspark Traun Klimaschutz Wels')"><div class="ticon">🌳</div><div class="tname">Umwelt & Klima</div><div class="tsub">Traun, Volkspark</div></div>
-<div class="tc" onclick="topicSearch('Schulen Bildung Berufsschulen HTL BHAK Wels')"><div class="ticon">🎓</div><div class="tname">Bildung</div><div class="tsub">Schulen, Jugend</div></div>
-<div class="tc" onclick="topicSearch('Wohnen Bauen Stadtentwicklung Kaiser-Josef-Platz Wels')"><div class="ticon">🏠</div><div class="tname">Wohnen & Bauen</div><div class="tsub">Neubauprojekte</div></div>
-<div class="tc" onclick="topicSearch('Wirtschaft Fronius Messezentrum Wels Unternehmen')"><div class="ticon">💰</div><div class="tname">Wirtschaft</div><div class="tsub">Fronius, Messe, Jobs</div></div>
-<div class="tc" onclick="topicSearch('Soziales Integration Vereine Wels')"><div class="ticon">🤝</div><div class="tname">Soziales</div><div class="tsub">Vereine, Integration</div></div>
-<div class="tc" onclick="topicSearch('Kultur Theater Stadttheater Wels Spielplan')"><div class="ticon">🎭</div><div class="tname">Kultur & Events</div><div class="tsub">Theater, Musik</div></div>
-<div class="tc" onclick="topicSearch('Sport Vereine Budokan Huskies Wels')"><div class="ticon">⚽</div><div class="tname">Sport</div><div class="tsub">Vereine, Sportstätten</div></div>
-<div class="tc" onclick="topicSearch('Gesundheit Klinikum Primärversorgung Wels')"><div class="ticon">🏥</div><div class="tname">Gesundheit</div><div class="tsub">Klinikum, PVZ</div></div>
+<div class="tc" onclick="topicSearch('Verkehr Radweg Parken Wels 2026')"><div class="ticon">🚗</div><div class="tname">Verkehr</div></div>
+<div class="tc" onclick="topicSearch('Stadtrat Andreas Rabl Wels')"><div class="ticon">🏛️</div><div class="tname">Stadtpolitik</div></div>
+<div class="tc" onclick="topicSearch('Wirtschaft Fronius Messezentrum Wels')"><div class="ticon">💼</div><div class="tname">Wirtschaft</div></div>
+<div class="tc" onclick="topicSearch('FH OÖ Campus Wels Studiengänge')"><div class="ticon">🎓</div><div class="tname">FH OÖ</div></div>
+<div class="tc" onclick="topicSearch('Messezentrum Wels Energiesparmesse')"><div class="ticon">🏟️</div><div class="tname">Messe Wels</div></div>
+<div class="tc" onclick="topicSearch('Kultur Stadttheater Greif Wels')"><div class="ticon">🎭</div><div class="tname">Kultur</div></div>
+<div class="tc" onclick="topicSearch('Welser Volksfest 2026')"><div class="ticon">🎡</div><div class="tname">Volksfest</div></div>
+<div class="tc" onclick="topicSearch('Sport Vereine Budokan Wels')"><div class="ticon">⚽</div><div class="tname">Sport</div></div>
+<div class="tc" onclick="topicSearch('Bildung Berufsschulen Wels HTL BHAK')"><div class="ticon">📚</div><div class="tname">Bildung</div></div>
+<div class="tc" onclick="topicSearch('Klinikum Wels Gesundheit')"><div class="ticon">🏥</div><div class="tname">Gesundheit</div></div>
 </div>
 <div id="topic-result" style="display:none">
 <div class="aibox"><div class="ailbl"><div class="aidot"></div>KI-Zusammenfassung</div><div class="aibig" id="topic-text">Wird geladen…</div></div>
@@ -342,14 +387,14 @@ main{max-width:1120px;margin:0 auto;padding:1rem}
 <div class="card">
 <div class="ch"><div class="ct">Wichtige Orte</div></div>
 <div class="cb">
-<div class="poi"><div class="poiico">🏛️</div><div><div style="font-size:13px;font-weight:500">Rathaus Wels</div><div style="font-size:11px;color:var(--muted)">Stadtplatz 1 · Verwaltung</div></div></div>
-<div class="poi"><div class="poiico">🎭</div><div><div style="font-size:13px;font-weight:500">Stadttheater Greif</div><div style="font-size:11px;color:var(--muted)">Stadtplatz · Kultur</div></div></div>
+<div class="poi"><div class="poiico">🏛️</div><div><div style="font-size:13px;font-weight:500">Rathaus Wels</div><div style="font-size:11px;color:var(--muted)">Stadtplatz 1</div></div></div>
+<div class="poi"><div class="poiico">🏟️</div><div><div style="font-size:13px;font-weight:500">Messezentrum Wels</div><div style="font-size:11px;color:var(--muted)">Messeplatz 1</div></div></div>
+<div class="poi"><div class="poiico">🎓</div><div><div style="font-size:13px;font-weight:500">FH OÖ Campus Wels</div><div style="font-size:11px;color:var(--muted)">Stelzhamerstraße 23</div></div></div>
+<div class="poi"><div class="poiico">💼</div><div><div style="font-size:13px;font-weight:500">WKO Wels</div><div style="font-size:11px;color:var(--muted)">Eisenhowerstraße 31</div></div></div>
+<div class="poi"><div class="poiico">🎭</div><div><div style="font-size:13px;font-weight:500">Stadttheater Greif</div><div style="font-size:11px;color:var(--muted)">Stadtplatz</div></div></div>
 <div class="poi"><div class="poiico">🏥</div><div><div style="font-size:13px;font-weight:500">Klinikum Wels-Grieskirchen</div><div style="font-size:11px;color:var(--muted)">Grieskirchner Str. 42</div></div></div>
-<div class="poi"><div class="poiico">🏟️</div><div><div style="font-size:13px;font-weight:500">Messezentrum Wels</div><div style="font-size:11px;color:var(--muted)">Messegasse 1</div></div></div>
-<div class="poi"><div class="poiico">🌳</div><div><div style="font-size:13px;font-weight:500">Volkspark Neu</div><div style="font-size:11px;color:var(--muted)">Entsiegelungsprojekt 2026</div></div></div>
-<div class="poi"><div class="poiico">🏛️</div><div><div style="font-size:13px;font-weight:500">Stadtmuseum Wels</div><div style="font-size:11px;color:var(--muted)">Kaiser-Josef-Platz</div></div></div>
-<div class="poi"><div class="poiico">⛪</div><div><div style="font-size:13px;font-weight:500">Stadtpfarrkirche</div><div style="font-size:11px;color:var(--muted)">Stadtplatz · Klassik am Dom</div></div></div>
-<div class="poi"><div class="poiico">🛹</div><div><div style="font-size:13px;font-weight:500">Skateboardhalle (neu)</div><div style="font-size:11px;color:var(--muted)">Eröffnung 2026</div></div></div>
+<div class="poi"><div class="poiico">🌳</div><div><div style="font-size:13px;font-weight:500">Volkspark Neu</div><div style="font-size:11px;color:var(--muted)">Großprojekt 2026/27</div></div></div>
+<div class="poi"><div class="poiico">⛪</div><div><div style="font-size:13px;font-weight:500">Stadtpfarrkirche</div><div style="font-size:11px;color:var(--muted)">Klassik am Dom</div></div></div>
 </div>
 </div>
 </div>
@@ -359,19 +404,19 @@ main{max-width:1120px;margin:0 auto;padding:1rem}
 <div class="tab" id="tab-ki">
 <div style="max-width:640px;margin:0 auto;padding:.5rem 0">
 <div class="sl">KI-Suche – Alles über Wels</div>
-<p style="color:var(--muted);font-size:13px;margin-bottom:1rem">Stelle eine Frage zu Wels – die KI nutzt ihr Wissen über die Stadt und fasst die wichtigsten Informationen zusammen.</p>
+<p style="color:var(--muted);font-size:13px;margin-bottom:1rem">Stelle eine Frage zu Wels – die KI nutzt ihr Wissen über Stadt, FH, WKO und Messe.</p>
 <div class="sbar" style="margin-bottom:.75rem">
-<input id="ki-inp" placeholder="z.B. Was beschloss der Stadtrat zuletzt?" onkeydown="if(event.key==='Enter')doKI()"/>
+<input id="ki-inp" placeholder="z.B. Wann ist die nächste Energiesparmesse?" onkeydown="if(event.key==='Enter')doKI()"/>
 <button onclick="doKI()">Fragen ↗</button>
 </div>
 <div class="frow" style="margin-bottom:1rem">
-<span class="tag" onclick="setKI('Was sind aktuelle Bauprojekte in Wels 2026?')">Bauprojekte</span>
-<span class="tag" onclick="setKI('Was macht das Welser Messezentrum aus?')">Messezentrum</span>
-<span class="tag" onclick="setKI('Welche Schulen gibt es in Wels?')">Schulen</span>
-<span class="tag" onclick="setKI('Wer ist Bürgermeister von Wels und welche Partei regiert?')">Stadtpolitik</span>
-<span class="tag" onclick="setKI('Was ist der Volkspark Neu in Wels?')">Volkspark</span>
-<span class="tag" onclick="setKI('Was bietet das Welser Stadttheater?')">Theater</span>
-<span class="tag" onclick="setKI('Welche Sportvereine gibt es in Wels?')">Sport</span>
+<span class="tag" onclick="setKI('Was ist die Energiesparmesse Wels und wann findet sie statt?')">Energiesparmesse</span>
+<span class="tag" onclick="setKI('Welche Studiengänge bietet die FH OÖ Campus Wels?')">FH-Studium</span>
+<span class="tag" onclick="setKI('Welche Workshops bietet die WKO Wels für Gründer?')">WKO Gründer</span>
+<span class="tag" onclick="setKI('Was ist die PFERD Wels Messe?')">PFERD Wels</span>
+<span class="tag" onclick="setKI('Was bietet das Welser Messezentrum?')">Messezentrum</span>
+<span class="tag" onclick="setKI('Was ist die OÖ Landesgartenschau Wels 2027?')">Landesgartenschau</span>
+<span class="tag" onclick="setKI('Wer ist Bürgermeister von Wels?')">Stadtpolitik</span>
 <span class="tag" onclick="setKI('Was ist das Welser Volksfest?')">Volksfest</span>
 </div>
 <div id="ki-result" style="display:none">
@@ -383,21 +428,24 @@ main{max-width:1120px;margin:0 auto;padding:1rem}
 </main>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
 <script>
 var mapA=false,mapB=false;
 var wels=[48.1572,14.0286];
 var pois=[
   {n:'Rathaus Wels',ll:[48.1570,14.0278],i:'🏛️'},
+  {n:'Messezentrum Wels',ll:[48.1493,14.0231],i:'🏟️'},
+  {n:'FH OÖ Campus Wels',ll:[48.1683,14.0383],i:'🎓'},
+  {n:'WKO Wels',ll:[48.1599,14.0193],i:'💼'},
   {n:'Stadttheater Greif',ll:[48.1574,14.0255],i:'🎭'},
   {n:'Klinikum Wels',ll:[48.1641,14.0355],i:'🏥'},
-  {n:'Messezentrum Wels',ll:[48.1493,14.0231],i:'🏟️'},
   {n:'Stadtmuseum Wels',ll:[48.1584,14.0270],i:'🏛️'},
   {n:'Stadtpfarrkirche',ll:[48.1578,14.0262],i:'⛪'},
   {n:'Volkspark (neu)',ll:[48.1620,14.0300],i:'🌳'},
   {n:'Budokan Wels',ll:[48.1530,14.0180],i:'🥋'},
   {n:'Bahnhof Wels',ll:[48.1606,14.0249],i:'🚂'},
 ];
-
 function mkMap(id){
   var m=L.map(id,{scrollWheelZoom:false}).setView(wels,13);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap',maxZoom:18}).addTo(m);
@@ -410,14 +458,15 @@ function goTab(name){
   document.querySelectorAll('.tab').forEach(function(el){el.classList.remove('on');});
   document.getElementById('tab-'+name).classList.add('on');
   document.querySelectorAll('.ntab').forEach(function(el){el.classList.remove('active');});
-  var tabs=['start','news','events','themen','karte','ki'];
+  var tabs=['start','news','events','messen','fhwko','themen','karte','ki'];
   var i=tabs.indexOf(name);
   if(i>=0) document.querySelectorAll('.ntab')[i].classList.add('active');
   if(name==='karte'&&!mapB){setTimeout(function(){mkMap('map2');mapB=true;},100);}
   if(name==='events') renderEvents();
+  if(name==='messen') renderMessen();
+  if(name==='fhwko'){renderFH();renderWKO();}
 }
 
-// ---- NEWS FILTER ----
 function filterNews(el,cat){
   document.querySelectorAll('#tab-news .tag').forEach(function(t){t.classList.remove('on');});
   el.classList.add('on');
@@ -426,31 +475,64 @@ function filterNews(el,cat){
   });
 }
 
-// ---- EVENTS DATA ----
+// ============ EVENT DATA (incl. Messen, FH, WKO) ============
 var allEvents=[
-  {d:9,m:5,y:2026,title:'Wels Cup – Parkinson Table Tennis (PTTA)',loc:'Sporthalle Vogelweide',cat:'sport',src:'meinbezirk.at',time:'ganztägig'},
-  {d:13,m:6,y:2026,title:'Vienna Brass Connection – Lions Club Charity Konzert',loc:'Stadttheater Greif Wels',cat:'konzert',src:'eventfinder.at',time:'19:30'},
-  {d:16,m:7,y:2026,title:'Klassik am Dom – Erwin Schrott (Bass-Bariton)',loc:'Stadtpfarrkirche Wels',cat:'konzert',src:'tips.at',time:'20:00'},
-  {d:23,m:7,y:2026,title:'100 Jahre Bach Chor Wels – Festkonzert „Lobgesang"',loc:'Stadttheater Greif Wels',cat:'konzert',src:'eventfinder.at',time:'19:30'},
-  {d:3,m:9,y:2026,title:'Welser Volksfest 2026 – Eröffnung & Festbieranstich',loc:'Festwiese Wels',cat:'volksfest',src:'welser-volksfest.at',time:'ab 20:00'},
-  {d:4,m:9,y:2026,title:'Welser Volksfest – „Nacht der Tracht"',loc:'Festzelt Familie Bamberger',cat:'volksfest',src:'welser-volksfest.at',time:'ab 20:00'},
-  {d:5,m:9,y:2026,title:'Welser Volksfest – Samstag',loc:'Festwiese Wels',cat:'volksfest',src:'welser-volksfest.at',time:'ab 20:00'},
-  {d:6,m:9,y:2026,title:'Welser Volksfest – Sonntag (Abschluss)',loc:'Festwiese Wels',cat:'volksfest',src:'welser-volksfest.at',time:'ab 11:30'},
-  {d:1,m:10,y:2026,title:'60. Sitzung Umweltausschuss Österr. Städtebund',loc:'Wels (Städtebund)',cat:'sonstiges',src:'staedtebund.gv.at',time:'ganztägig'},
-  {d:22,m:10,y:2026,title:'ÖKOLOG-Erfahrungsaustausch',loc:'Private MS Wels, Vogelweiderstr.',cat:'sonstiges',src:'land-ooe.gv.at',time:'ganztägig'},
-  {d:14,m:5,y:2026,title:'PFERD Wels – Messe für Reitsport & Pferde',loc:'Messezentrum Wels, Messeplatz 1',cat:'messe',src:'messezentrum-wels.at',time:'ab 17:00'},
-  {d:5,m:6,y:2026,title:'Caro Fux – Austropop Tour (Herbst-Vorbote)',loc:'Stadttheater Greif Wels',cat:'konzert',src:'eventfinder.at',time:'20:00'},
-  {d:20,m:6,y:2026,title:'Musical Night – Cats, Phantom der Oper, Moulin Rouge',loc:'Stadttheater Greif Wels',cat:'theater',src:'eventfinder.at',time:'19:30'},
-  {d:10,m:5,y:2026,title:'Wochenmarkt Stadtplatz Wels',loc:'Stadtplatz Wels',cat:'markt',src:'wels.gv.at',time:'06:00–12:00'},
-  {d:17,m:5,y:2026,title:'Wochenmarkt Stadtplatz Wels',loc:'Stadtplatz Wels',cat:'markt',src:'wels.gv.at',time:'06:00–12:00'},
-  {d:24,m:5,y:2026,title:'Wochenmarkt Stadtplatz Wels',loc:'Stadtplatz Wels',cat:'markt',src:'wels.gv.at',time:'06:00–12:00'},
-  {d:31,m:5,y:2026,title:'Wochenmarkt Stadtplatz Wels',loc:'Stadtplatz Wels',cat:'markt',src:'wels.gv.at',time:'06:00–12:00'},
+  // === MESSEN 2026 ===
+  {d:31,m:1,y:2026,title:'Fishing Festival 2026 – Österreichs Anglertreffpunkt Nr. 1',loc:'Messe Wels · 31.1.–1.2.',cat:'messe',src:'fishing-festival.at',url:'https://fishing-festival.at/'},
+  {d:31,m:1,y:2026,title:'Bogensportmesse 2026 – AT-Staatsmeisterschaft Indoor',loc:'Messe Wels · 31.1.–1.2.',cat:'messe',src:'bogensportmesse.at',url:'https://bogensportmesse.at/'},
+  {d:25,m:2,y:2026,title:'Energiesparmesse Wels 2026 – Bauen, Sanieren, Energie',loc:'Messe Wels · 25.2.–28.2.',cat:'messe',src:'energiesparmesse.at',url:'https://energiesparmesse.at/'},
+  {d:25,m:2,y:2026,title:'E-Car Days 2026 – Premiere',loc:'Messe Wels · 25.2.–1.3.',cat:'messe',src:'messe-wels.at',url:'https://www.messe-wels.at/'},
+  {d:27,m:2,y:2026,title:'World Sustainable Energy Days – Konferenz „Smarte E-Mobilität"',loc:'Stadthalle Wels',cat:'messe',src:'wsed.at',url:'https://www.wsed.at/de/'},
+  {d:27,m:3,y:2026,title:'Blühendes Österreich 2026 – Gartenmesse',loc:'Messe Wels · 27.3.–29.3.',cat:'messe',src:'gartenmesse.at',url:'https://gartenmesse.at/'},
+  {d:27,m:3,y:2026,title:'Urlaub & Ausflug 2026 – Freizeitmesse',loc:'Messe Wels · 27.3.–29.3.',cat:'messe',src:'urlaub-ausflug.at',url:'https://urlaub-ausflug.at/'},
+  {d:14,m:5,y:2026,title:'PFERD Wels 2026 – Pferdesport, Zucht, „Nacht der Pferde"',loc:'Messe Wels · 14.5.–17.5.',cat:'messe',src:'pferd-wels.at',url:'https://pferd-wels.at/'},
+  {d:20,m:5,y:2026,title:'Premiere-Messe (neu) – Save the Date',loc:'Messe Wels · 20.5.–21.5.',cat:'messe',src:'messe-wels.at',url:'https://www.messe-wels.at/'},
+  {d:10,m:6,y:2026,title:'integra 2026 – Fachmesse Pflege, Reha, Therapie',loc:'Messe Wels · 10.6.–12.6.',cat:'messe',src:'integra.at',url:'https://integra.at/'},
+  {d:11,m:6,y:2026,title:'integra 2026 – Brunch & Impulsvorträge Gesundheits-Fachhandel',loc:'Messe Wels',cat:'messe',src:'integra.at',url:'https://integra.at/'},
+  
+  // === FH OÖ Campus Wels ===
+  {d:6,m:5,y:2026,title:'FH Wels: Workshop „Selbsthilfe Nacken/Schulter"',loc:'FH OÖ, Raum A|S-103 · 9:00–10:00',cat:'fh',src:'fh-ooe.at',url:'https://fh-ooe.at/campus-wels/events'},
+  {d:23,m:6,y:2026,title:'FH Wels: Online Info-Event Studiengänge',loc:'Online · 19:00–19:30',cat:'fh',src:'fh-ooe.at',url:'https://fh-ooe.at/campus-wels/events'},
+  {d:24,m:6,y:2026,title:'FH Wels: Online Info-Event – Berufsbegleitend studieren',loc:'Online · 17:30–18:00',cat:'fh',src:'fh-ooe.at',url:'https://fh-ooe.at/campus-wels/events'},
+  {d:1,m:7,y:2026,title:'FH Wels: Sommerempfang 2026 – Networking',loc:'FH OÖ Campus Wels',cat:'fh',src:'fh-ooe.at',url:'https://fh-ooe.at/campus-wels/'},
+  {d:13,m:11,y:2026,title:'FH OÖ Infotage 2026 (alle Fakultäten)',loc:'FH OÖ Campus Wels · 13.–14.11.',cat:'fh',src:'fh-ooe.at',url:'https://www.fh-ooe.at/studieren/infoveranstaltungen/'},
+  {d:15,m:1,y:2027,title:'FH Wels: Master Night 2027 – 16 Master-Studiengänge',loc:'Aula FH OÖ · Stelzhamerstr. 23 · 18:00',cat:'fh',src:'fh-ooe.at',url:'https://fh-ooe.at/campus-wels/events/master-night-wels'},
+  {d:13,m:3,y:2026,title:'FH Wels: Open House 2026 – Tag der offenen Tür',loc:'FH OÖ Campus Wels · 13:00–18:00',cat:'fh',src:'fh-ooe.at',url:'https://fh-ooe.at/campus-wels/events/open-house'},
+  
+  // === WKO ===
+  {d:13,m:5,y:2026,title:'Junge Wirtschaft Wels: Mazda-Betriebsbesichtigung',loc:'Mazda Autohaus Wels',cat:'wko',src:'wkooe.at',url:'https://veranstaltungen.wkooe.at/'},
+  {d:8,m:5,y:2026,title:'WKO Workshop „Startklar für Selbstständigkeit" Grieskirchen/Wels',loc:'WKO · Kleingruppe',cat:'wko',src:'wkooe.at',url:'https://veranstaltungen.wkooe.at/'},
+  {d:18,m:3,y:2026,title:'WKO Gründungstage 2026 – Tag 1: Keynote Martin Giesswein',loc:'WKO · 13:00',cat:'wko',src:'wko.at',url:'https://www.wko.at/veranstaltungen/3580fc9d-0234-419e-b550-ab430190cd80'},
+  {d:19,m:3,y:2026,title:'WKO Gründungstage 2026 – Tag 2: Pitch your Idea + Women in AI',loc:'WKO · 14:30 + 17:30',cat:'wko',src:'wko.at',url:'https://www.wko.at/veranstaltungen/3580fc9d-0234-419e-b550-ab430190cd80'},
+  {d:7,m:5,y:2026,title:'EDAY 2026 – Digitalisierungs-Event der WKÖ',loc:'WKÖ Wien · ab 10:00',cat:'wko',src:'wko.at',url:'https://www.wko.at/veranstaltungen/1660a695-f505-4175-9353-8f271033c2d3'},
+  {d:20,m:5,y:2026,title:'AK E-Billing – AUSTRIAPRO',loc:'Online (MS Teams) · 15:00–17:00',cat:'wko',src:'wko.at',url:'https://www.wko.at/netzwerke/austriapro-veranstaltungen'},
+  {d:28,m:5,y:2026,title:'AK Blockchain – AUSTRIAPRO',loc:'Online (MS Teams) · 14:00–16:00',cat:'wko',src:'wko.at',url:'https://www.wko.at/netzwerke/austriapro-veranstaltungen'},
+  {d:13,m:2,y:2026,title:'WKO OÖ – Workshop Gründung & Selbstständigkeit',loc:'WKO Wels',cat:'wko',src:'wkooe.at',url:'https://veranstaltungen.wkooe.at/'},
+  
+  // === Konzerte/Theater ===
+  {d:13,m:6,y:2026,title:'Vienna Brass Connection – Lions Club Charity',loc:'Stadttheater Greif · 19:30',cat:'konzert',src:'eventfinder.at',url:'https://www.eventfinder.at/wels/veranstaltungen/'},
+  {d:16,m:7,y:2026,title:'Klassik am Dom – Erwin Schrott (Bass-Bariton)',loc:'Stadtpfarrkirche · 20:00',cat:'konzert',src:'tips.at',url:'https://www.tips.at/events/wels'},
+  {d:23,m:7,y:2026,title:'100 Jahre Bach Chor Wels – „Lobgesang" (Mendelssohn)',loc:'Stadttheater Greif · 19:30',cat:'konzert',src:'eventfinder.at',url:'https://www.eventfinder.at/wels/veranstaltungen/'},
+  {d:5,m:6,y:2026,title:'Caro Fux – Austropop-Konzert',loc:'Stadttheater Greif · 20:00',cat:'konzert',src:'eventfinder.at',url:'https://www.eventfinder.at/wels/veranstaltungen/'},
+  {d:20,m:6,y:2026,title:'Musical Night – Cats, Phantom, Moulin Rouge',loc:'Stadttheater Greif · 19:30',cat:'theater',src:'eventfinder.at',url:'https://www.eventfinder.at/wels/veranstaltungen/'},
+  
+  // === Sport ===
+  {d:9,m:5,y:2026,title:'Wels Cup – Parkinson Table Tennis (PTTA)',loc:'Sporthalle Vogelweide',cat:'sport',src:'meinbezirk.at',url:'https://www.meinbezirk.at/wels-wels-land'},
+  
+  // === Volksfest ===
+  {d:3,m:9,y:2026,title:'Welser Volksfest – Eröffnung & Festbieranstich',loc:'Festwiese Wels · ab 20:00',cat:'volksfest',src:'welser-volksfest.at',url:'https://welser-volksfest.at/'},
+  {d:4,m:9,y:2026,title:'Welser Volksfest – „Nacht der Tracht"',loc:'Festzelt Bamberger',cat:'volksfest',src:'welser-volksfest.at',url:'https://welser-volksfest.at/'},
+  {d:5,m:9,y:2026,title:'Welser Volksfest – Samstag',loc:'Festwiese Wels',cat:'volksfest',src:'welser-volksfest.at',url:'https://welser-volksfest.at/'},
+  {d:6,m:9,y:2026,title:'Welser Volksfest – Abschluss',loc:'Festwiese Wels · ab 11:30',cat:'volksfest',src:'welser-volksfest.at',url:'https://welser-volksfest.at/'},
+  
+  // === Markt ===
+  {d:10,m:5,y:2026,title:'Wochenmarkt Stadtplatz Wels',loc:'Stadtplatz · 06:00–12:00',cat:'markt',src:'wels.gv.at',url:'https://www.wels.gv.at/'},
+  {d:17,m:5,y:2026,title:'Wochenmarkt Stadtplatz Wels',loc:'Stadtplatz · 06:00–12:00',cat:'markt',src:'wels.gv.at',url:'https://www.wels.gv.at/'},
+  {d:24,m:5,y:2026,title:'Wochenmarkt Stadtplatz Wels',loc:'Stadtplatz · 06:00–12:00',cat:'markt',src:'wels.gv.at',url:'https://www.wels.gv.at/'},
 ];
-var MONTHS=['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
-var MONS=['Jan','Feb','Mär','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'];
-var curMonth=4; // 0-indexed, May=4
-var curYear=2026;
-var evFilter='alle';
+var MONTHS=['Jänner','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+var MONS=['Jän','Feb','Mär','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'];
+var curMonth=4,curYear=2026,evFilter='alle';
 
 function showMonth(d){
   curMonth+=d;
@@ -458,12 +540,24 @@ function showMonth(d){
   if(curMonth<0){curMonth=11;curYear--;}
   renderEvents();
 }
-
 function filterEv(el,cat){
   document.querySelectorAll('#tab-events .tag').forEach(function(t){t.classList.remove('on');});
   el.classList.add('on');
   evFilter=cat;
   renderEvents();
+}
+var catBadge={messe:'br',fh:'bp',wko:'bg2',konzert:'ba',theater:'bp',sport:'bt',volksfest:'br',markt:'bg2',sonstiges:'ba'};
+var catLabel={messe:'Messe',fh:'FH OÖ',wko:'WKO',konzert:'Konzert',theater:'Theater',sport:'Sport',volksfest:'Volksfest',markt:'Markt',sonstiges:'Sonstiges'};
+
+function evHTML(e){
+  return '<div class="ev">'+
+    '<div class="evdate"><div class="evday">'+e.d+'</div><div class="evmon">'+MONS[e.m-1]+'</div></div>'+
+    '<div style="flex:1">'+
+    '<span class="badge '+catBadge[e.cat]+'">'+catLabel[e.cat]+'</span>'+
+    '<div class="evtitle" style="margin-top:3px">'+e.title+'</div>'+
+    '<div class="evloc">📍 '+e.loc+'</div>'+
+    '<div class="evsrc">Quelle: <a href="'+e.url+'" target="_blank">'+e.src+'</a></div>'+
+    '</div></div>';
 }
 
 function renderEvents(){
@@ -473,23 +567,30 @@ function renderEvents(){
   }).sort(function(a,b){return a.d-b.d;});
   var el=document.getElementById('evlist');
   if(filtered.length===0){
-    el.innerHTML='<div style="padding:1.5rem;text-align:center;color:var(--muted)">Keine Veranstaltungen in diesem Monat / dieser Kategorie.<br><small>→ Weitere Termine auf <a href="https://www.eventfinder.at/wels/veranstaltungen/" target="_blank" style="color:var(--accent)">eventfinder.at</a></small></div>';
+    el.innerHTML='<div style="padding:1.5rem;text-align:center;color:var(--muted)">Keine Veranstaltungen in diesem Monat / dieser Kategorie.</div>';
     return;
   }
-  var catBadge={konzert:'ba',theater:'bp',sport:'bt',messe:'bg',volksfest:'br',markt:'bg',sonstiges:'ba'};
-  var catLabel={konzert:'Konzert',theater:'Theater',sport:'Sport',messe:'Messe',volksfest:'Volksfest',markt:'Markt',sonstiges:'Sonstiges'};
-  el.innerHTML=filtered.map(function(e){
-    return '<div class="ev">'+
-      '<div class="evdate"><div class="evday">'+e.d+'</div><div class="evmon">'+MONS[e.m-1]+'</div></div>'+
-      '<div>'+
-      '<span class="badge '+catBadge[e.cat]+'">'+catLabel[e.cat]+'</span>'+
-      '<div class="evtitle" style="margin-top:3px">'+e.title+'</div>'+
-      '<div class="evloc">📍 '+e.loc+(e.time?' · '+e.time:'')+'</div>'+
-      '<div class="evsrc">Quelle: '+e.src+'</div>'+
-      '</div></div>';
-  }).join('');
+  el.innerHTML=filtered.map(evHTML).join('');
 }
 renderEvents();
+
+function renderMessen(){
+  var future=allEvents.filter(function(e){return e.cat==='messe';})
+    .sort(function(a,b){var da=new Date(a.y,a.m-1,a.d),db=new Date(b.y,b.m-1,b.d);return da-db;});
+  document.getElementById('messenlist').innerHTML=future.map(evHTML).join('');
+}
+
+function renderFH(){
+  var fh=allEvents.filter(function(e){return e.cat==='fh';})
+    .sort(function(a,b){var da=new Date(a.y,a.m-1,a.d),db=new Date(b.y,b.m-1,b.d);return da-db;});
+  document.getElementById('fhlist').innerHTML=fh.map(evHTML).join('');
+}
+
+function renderWKO(){
+  var wko=allEvents.filter(function(e){return e.cat==='wko';})
+    .sort(function(a,b){var da=new Date(a.y,a.m-1,a.d),db=new Date(b.y,b.m-1,b.d);return da-db;});
+  document.getElementById('wkolist').innerHTML=wko.map(evHTML).join('');
+}
 
 // ---- KI ----
 async function callClaude(prompt){
@@ -500,13 +601,13 @@ async function callClaude(prompt){
       body:JSON.stringify({
         model:"claude-sonnet-4-20250514",
         max_tokens:1000,
-        system:"Du bist Wels Radar – lokaler KI-Assistent für Wels, Oberösterreich. Antworte präzise auf Deutsch. Nutze konkretes Wissen: Bürgermeister Andreas Rabl (FPÖ), Vizebgm. Gerhard Kroiß, Stadttheater Greif, Klinikum Wels-Grieskirchen, Fronius International, Messezentrum, Volksgarten/Volkspark-Neu-Projekt, Berufsschulen (BS1/BS2/BS3 Wels), HTL Wels, BHAK Wels, Traun-Hochwasserschutz, Budokan, Huskies Wels (Lacrosse), Kaiser-Josef-Platz-Neugestaltung 2026, Welser Volksfest (Sep), laumat.at als lokaler Newsticker. Antworte in 3-5 Absätzen. Bei Unsicherheit zu Ereignissen nach Aug 2025 weise freundlich darauf hin.",
+        system:"Du bist Wels Radar – KI-Assistent für Wels, Oberösterreich. Antworte präzise auf Deutsch in 3-5 Absätzen. Konkretes Wissen: Bürgermeister Andreas Rabl (FPÖ), Vizebgm. Gerhard Kroiß, FH OÖ Campus Wels (Stelzhamerstr. 23, Schwerpunkte Technik/Maschinenbau/Bio-Umwelt/Lebensmitteltechnologie, 16 Master-Studiengänge), WKO Wels & Junge Wirtschaft, Messezentrum Wels (Messeplatz 1, 37+ Messen/Jahr), wichtige Messen: Energiesparmesse (Feb), Blühendes Österreich (Mär), PFERD Wels (Mai), integra (Jun), Fishing Festival (Jän), Bogensportmesse (Jän), Caravan Salon Austria. Stadttheater Greif, Klinikum Wels-Grieskirchen, Fronius, Volksgarten/Volkspark-Neu-Projekt, Berufsschulen BS1-BS3, HTL Wels, BHAK Wels, Budokan, Welser Volksfest (3.–6.9.2026), OÖ Landesgartenschau Wels 2027. Bei Unsicherheit zu Ereignissen nach Aug 2025 freundlich darauf hinweisen.",
         messages:[{role:"user",content:prompt}]
       })
     });
     var d=await r.json();
     return(d.content&&d.content[0])?d.content[0].text:"Keine Antwort erhalten.";
-  }catch(e){return "Fehler beim Laden der KI-Antwort. Bitte versuche es erneut.";}
+  }catch(e){return "Fehler beim Laden. Bitte erneut versuchen.";}
 }
 
 async function doKI(){
@@ -525,7 +626,7 @@ async function topicSearch(topic){
   var txt=document.getElementById('topic-text');
   el.style.display='block';
   txt.innerHTML='<span class="spin"></span> Wird zusammengefasst…';
-  txt.textContent=await callClaude('Erkläre das Thema: '+topic+'. Kontext: Wels, Oberösterreich, aktuelle Lage 2026.');
+  txt.textContent=await callClaude('Erkläre das Thema: '+topic+'. Kontext: Wels, OÖ, Stand 2026.');
 }
 
 function setKI(q){document.getElementById('ki-inp').value=q;doKI();}
